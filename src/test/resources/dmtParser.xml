@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : dmtParser.xml
+    Created on : December 2, 2010, 9:10 AM
+    Author     : igabbarini
+    Description:
+        Purpose of the document follows.
+-->
+<parsers>
+   <parser parserName="RespuestaConsultaEstado" type="com.egg.stringparser.stringparser.Transaccion">
+      <field name="idTransaccion">
+         <length>16</length>
+      </field>
+      <complexField name="mtcn" type="java.lang.Double">
+         <length>10</length>
+      </complexField>
+      <complexField type = "com.egg.stringparser.stringparser.Emisor" name="emisor">
+         <field name="nombre">
+            <length>25</length>
+         </field>
+         <field name="apellido">
+            <length>55</length>
+         </field>
+      </complexField>
+      <complexField type = "com.egg.stringparser.stringparser.Beneficiario" name="beneficiario">
+         <field name="nombre">
+            <length>25</length>
+         </field>
+         <field name="apellido">
+            <length>55</length>
+         </field>
+      </complexField>
+      <field name="fechaEmision">
+         <length>10</length>
+      </field>
+      <complexField type = "java.math.BigInteger" name="monto">
+         <length>10</length>
+      </complexField>
+   </parser>
+   
+   <parser parserName="RespuestaObjetoUno" type="com.egg.stringparser.stringparser.entities.ObjetoUno">
+      <complexField name="altura" type="java.lang.Double">
+         <length>3</length>
+      </complexField>
+      <field name="nombre">
+         <length>20</length>
+      </field>
+      <field name="apellido">
+         <length>30</length>
+      </field>
+      <complexField type = "java.lang.Integer" name="peso">
+         <length>3</length>
+      </complexField>
+      <complexField type = "java.lang.Integer" name="hijos">
+         <length>2</length>
+      </complexField>
+      <complexField type = "com.egg.stringparser.stringparser.entities.Persona" name="persona">
+         <complexField type = "com.egg.stringparser.stringparser.Emisor" name="emisor">
+         <field name="nombre">
+            <length>20</length>
+         </field>
+         <field name="apellido">
+            <length>30</length>
+         </field>
+      </complexField>
+      </complexField>
+   </parser>
+</parsers>
