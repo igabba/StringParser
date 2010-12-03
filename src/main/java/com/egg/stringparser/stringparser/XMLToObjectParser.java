@@ -51,8 +51,8 @@ public class XMLToObjectParser {
       return o;
    }
 
-   private static Object parse(Element elemento, Object fatherObject) {
-      Iterator iteratorParser = elemento.getChildren().iterator();
+   private static Object parse(Element element, Object fatherObject) {
+      Iterator iteratorParser = element.getChildren().iterator();
       while (iteratorParser.hasNext()) {
          Element temp = (Element) iteratorParser.next();
          if (temp.getName().equals("complexField")) {
