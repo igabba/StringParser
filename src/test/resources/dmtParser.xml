@@ -24,7 +24,7 @@
    </parser>
    
    <parser parserName="RespuestaObjetoUno" type="com.egg.stringparser.stringparser.entities.ObjetoUno">
-      <complexField name="altura" type="java.lang.Double" length="3"/>
+      <complexField name="altura" type="java.lang.Double" length="10"/>
       <field name="nombre" length="20"/>
       <field name="apellido" length="30"/>
       <complexField type = "java.lang.Integer" name="peso" length="3"/>

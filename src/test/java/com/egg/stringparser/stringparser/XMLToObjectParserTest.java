@@ -42,8 +42,8 @@ public class XMLToObjectParserTest {
     */
    @Test
    public void testObtenerObjeto() {
-      XMLToObjectParser proresp = new XMLToObjectParser();
-      Transaccion t = (Transaccion) proresp.obtenerObjeto("dmtParser.xml", "12345678912345671234567899Juan Manuel              Fernandez Iraola Mendez                                Maria Angelica           Fernandez Iraola Mendez                                06/10/20090000020050", "RespuestaConsultaEstado");
+      Transaccion t = (Transaccion) XMLToObjectParser.getObjectFromString("dmtParser.xml", "12345678912345671234567899Juan Manuel              Fernandez Iraola Mendez                                Maria Angelica           Fernandez Iraola Mendez                                06/10/20090000020050", "RespuestaConsultaEstado");
+      System.out.println(t);
       assertEquals("20050", t.getMonto().toString());
    }
    
@@ -52,8 +52,7 @@ public class XMLToObjectParserTest {
     */
    @Test
    public void testObtenerObjetoUno() {
-      XMLToObjectParser proresp = new XMLToObjectParser();
-      ObjetoUno t = (ObjetoUno) proresp.obtenerObjeto("dmtParser.xml", "184Juan Manuel         Fernandez Lopez               11606Manuel Carlos Jose  Martinez                      ", "RespuestaObjetoUno");
+      ObjetoUno t = (ObjetoUno) XMLToObjectParser.getObjectFromString("dmtParser.xml", "0001501.85Juan Manuel         Fernandez Lopez               11606Manuel Carlos Jose  Martinez                      ", "RespuestaObjetoUno");
       System.out.println(t);
       assertEquals(6, t.hijos);
    }

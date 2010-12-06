@@ -30,7 +30,7 @@ public class XMLToObjectParser {
     * @param parserName El nombre del parser a utilizar.
     * @return
     */
-   public static Object obtenerObjeto(String fileName, String mensaje, String parserName) {
+   public static Object getObjectFromString(String fileName, String mensaje, String parserName) {
       XMLToObjectParser.message = mensaje;
       Object o = null;
       InputStream file = ClassLoader.getSystemResourceAsStream(fileName);
@@ -73,14 +73,14 @@ public class XMLToObjectParser {
       Constructor co = null;
       try {
          clase = Class.forName(element.getAttributeValue("type"));
-         co = clase.getConstructor();
-         o = co.newInstance();
+         co = clase.getConstructor(new Class[]{});
+         o = co.newInstance(new String[]{});
          parse(element, o);
       } catch (NoSuchMethodException ex) {
          try {
             length = Integer.parseInt(element.getAttributeValue("length"));
-            co = clase.getConstructor(String.class);
-            o = co.newInstance(message.substring(0, length));
+            co = clase.getConstructor(new Class[]{String.class});
+            o = co.newInstance(new String[]{message.substring(0, length)});
          } catch (Exception ex1) {
             Logger.getLogger(XMLToObjectParser.class.getName()).log(Level.SEVERE, null, ex1);
          } finally {
