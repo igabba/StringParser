@@ -59,7 +59,7 @@ public class XMLToObjectParser {
             Object complexField = createObject(temp);
             fatherObject = setField(fatherObject, complexField, temp.getAttribute("name").getValue());
          } else {
-            length = Integer.parseInt(temp.getChildText("length"));
+            length = Integer.parseInt(temp.getAttributeValue("length"));
             setField(fatherObject, message.substring(0, length).trim(), temp.getAttribute("name").getValue());
             message = message.substring(length);
          }
@@ -78,7 +78,7 @@ public class XMLToObjectParser {
          parse(element, o);
       } catch (NoSuchMethodException ex) {
          try {
-            length = Integer.parseInt(element.getChildText("length"));
+            length = Integer.parseInt(element.getAttributeValue("length"));
             co = clase.getConstructor(String.class);
             o = co.newInstance(message.substring(0, length));
          } catch (Exception ex1) {
